@@ -1,11 +1,11 @@
 import java.util.*;
 class MaxHeap {
-	int[] a;
-	int maxsize,heapsize;
+	 static int[] a;
+	 static int maxsize,heapsize=0;
 	MaxHeap(int ms) {
-		a=new int[ms];
-		maxsize=ms;
-		heapsize=0;
+		this.a=new int[ms];
+		this.maxsize=ms;
+		this.heapsize=heapsize;
 	}
 	int lChild(int i) {
 		return 2*i+1;
@@ -65,6 +65,12 @@ class MaxHeap {
 	int currentSize() {
 		return heapsize;
 	}
+	public static void printHeap() {
+		for(int i=0;i<heapsize;i++) {
+			System.out.println(a[i]+" ");
+		}
+		System.out.println();
+	}
 	public static void main(String[] args) {
 		MaxHeap h=new MaxHeap(15);
 		int elements[]={3,10,12,8,2,14};
@@ -72,15 +78,17 @@ class MaxHeap {
 			h.insertKey(e);
 		System.out.println("Current size of heap: "+h.currentSize());
 		System.out.println("Current max element of heap: "+h.getMax());
+		MaxHeap.printHeap();
 		h.removeMax();
 		System.out.println("Current size of heap: "+h.currentSize());
+		MaxHeap.printHeap();
 		h.insertKey(15);
 		h.insertKey(5);
 		System.out.println("Current size of heap: "+h.currentSize());
 		System.out.println("Current max element of heap: "+h.getMax());
+		MaxHeap.printHeap();
 	}
 }
-		
 		
 		
 		
